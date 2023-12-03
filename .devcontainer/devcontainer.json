@@ -1,8 +1,8 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "node": {
-        "version": "20",
+    "ghcr.io/devcontainers/features/node:1": {
+        "version": "18",
         "nodeGypDependencies": true
     }
   }
