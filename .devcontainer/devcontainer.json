@@ -1,9 +1,5 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-        "version": "18",
-        "nodeGypDependencies": true
-    }
-  }
+  "name": "Basic Node.js",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "node"
 }
