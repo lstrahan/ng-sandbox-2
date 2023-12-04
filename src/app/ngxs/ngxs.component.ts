@@ -16,12 +16,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-ngxs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './ngxs.component.html',
   styleUrl: './ngxs.component.scss'
 })
 export class NgxsComponent {
-  @Select(PersonState.person) person$: Observable<Person> = new Observable<Person>();
+  @Select(PersonState.person) person$: Observable<Person>;
   person: Person = new Person();
 
   constructor(private store: Store) {
@@ -57,13 +59,13 @@ export class NgxsComponent {
     // State is immutable. You must clone the object if you want to modify it.
     const acct: BankAccount = _.cloneDeep(
       this.person.accounts.find((x) => x.accountType === 'savings')
-    )!;
+    );
     acct.balance = 0;
     this.store.dispatch(new UpdateAccountObject(acct));
   }
 
   onIncreaseAccount() {
-    const acct = this.person.accounts.find((x) => x.accountType === 'savings')!;
+    const acct = this.person.accounts.find((x) => x.accountType === 'savings');
     this.store.dispatch(new IncreaseBalanceProperty(acct.id, 500));
   }
 
