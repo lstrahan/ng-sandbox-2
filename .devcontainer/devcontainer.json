@@ -7,6 +7,5 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers-contrib/features/angular-cli:2": {}
-  },
-  "forwardPorts": [4200]
+  }
 }
