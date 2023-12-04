@@ -6,7 +6,7 @@ import {
     NgxsOnInit,
   } from '@ngxs/store';
   import * as _ from 'lodash';
-  import { Person, BankAccount } from './person';
+  import { Person, BankAccount } from './models';
   
   // Actions
   export class AddPerson {

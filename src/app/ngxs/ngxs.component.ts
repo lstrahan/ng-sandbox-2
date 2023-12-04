@@ -10,7 +10,7 @@ import {
   ChangeName,
   AddPerson,
 } from './app.state';
-import { Person, BankAccount } from './person';
+import { Person, BankAccount } from './models';
 import { CommonModule } from '@angular/common';
 
 @Component({
