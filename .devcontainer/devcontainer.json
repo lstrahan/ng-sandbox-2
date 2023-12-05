@@ -1,16 +1,5 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install",
-  "postCreateCommand": "",
-  "postAttachCommand": {
-    "server": "npm run start"
-  },
-  "portsAttributes": {
-    "4200": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "forwardPorts": [4200]
+  "updateContentCommand": "npm install"
 }
