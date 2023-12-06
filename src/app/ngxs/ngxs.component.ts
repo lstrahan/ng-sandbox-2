@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 import {
   PersonState,
   UpdateAccountObject,
   IncreaseBalanceProperty,
   AddAccount,
   ChangeName,
-  AddPerson,
-} from './app.state';
+  AddPerson
+} from './my.state';
 import { Person, BankAccount } from './models';
 import { CommonModule } from '@angular/common';
 
