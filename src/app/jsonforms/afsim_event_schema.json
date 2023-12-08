@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "event": {
+        "$ref": "event_types/afsim/lambert_intercept_event_schema.json"
+      }
+  }
+}

@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Component",
+    "type": "object",
+    "properties": {
+      "actor": {
+        "type": "string",
+        "description": "actor"
+      },
+      "subject": {
+        "type": "string",
+        "description": "subject"
+      },
+      "evtUUID": {
+        "type": "string",
+        "description": "maneuver event universally unique identifier (UUID), gen by Python",
+        "minimum": 0
+      },
+      "deltaTime": {
+        "type": "number",
+        "description": "The time after the maneuver begins when the transfer is planned to complete.",
+        "minimum": 0
+      },
+      "relSma": {
+        "type": "number",
+        "description": "The size in meters of the semi-major-axis of the relative orbit of the chaser around the chief/target.",
+        "minimum": 0
+      }
+    }
+  }
+  

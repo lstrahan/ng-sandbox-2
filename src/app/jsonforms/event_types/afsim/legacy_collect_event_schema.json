@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Component",
+    "type": "object",
+    "properties": {
+      "actor": {
+        "type": "string",
+        "description": "actor"
+      },
+      "startTime": {
+        "type": "number",
+        "description": "",
+        "minimum": 0
+      },
+      "duration": {
+        "type": "number",
+        "description": "The time after the maneuver begins when the transfer is planned to complete.",
+        "minimum": 0
+      }
+    }
+  }
+  
