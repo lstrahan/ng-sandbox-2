@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import { and, createAjv, isControl, optionIs, rankWith, schemaTypeIs, scopeEndsWith, setSchema, Tester } from '@jsonforms/core';
-import { CustomAutocompleteControlRenderer } from './custom.autocomplete';
 import { DataDisplayComponent } from './data.control';
-import { LangComponent } from './lang.control';
-import uischemaAsset from '../assets/afsim_event_uischema.json';
-import schemaAsset from '../assets/afsim_event_schema.json';
+import uischemaAsset from './afsim_event_uischema.json';
+import schemaAsset from './afsim_event_schema.json';
 import dataAsset from './data';
-import { parsePhoneNumber } from 'libphonenumber-js';
-import { DateAdapter } from '@angular/material/core';
 import $RefParser from "@apidevtools/json-schema-ref-parser";
+import { CommonModule } from '@angular/common';
+import { JsonFormsModule } from '@jsonforms/angular';
+import { JsonFormsAngularMaterialModule } from '@jsonforms/angular-material';
 
 const departmentTester: Tester = and(
   schemaTypeIs('string'),
@@ -18,10 +17,15 @@ const departmentTester: Tester = and(
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, JsonFormsModule,
+    JsonFormsAngularMaterialModule,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class JsonformsComponent {
   renderers = [
     ...angularMaterialRenderers,
     { tester: rankWith(5, departmentTester), renderer: CustomAutocompleteControlRenderer },
@@ -49,33 +53,16 @@ export class AppComponent {
   uischema = uischemaAsset;
   schema = schemaAsset;
   data = dataAsset;
-  i18n = {locale: 'de-DE'}
-  dateAdapter;
-  ajv = createAjv({
-    schemaId: 'id',
-    allErrors: true
-  });
   refParserOptions = {
     dereference: {
       circular: false
     }
   }
 
-  constructor(dateAdapter: DateAdapter<Date>) {
+  constructor() {
     let parser = new $RefParser();
     parser.bundle('../assets/afsim_event_schema.json');
     console.log(parser.schema);
     // $RefParser.dereference(this.schema, this.refParserOptions).then(res => setSchema(res.$schema));
-    this.ajv.addFormat('time', '^([0-1][0-9]|2[0-3]):[0-5][0-9]$');
-    this.dateAdapter = dateAdapter;
-    dateAdapter.setLocale(this.i18n.locale);
-    this.ajv.addFormat('tel', maybePhoneNumber => {
-      try {
-        parsePhoneNumber(maybePhoneNumber, 'DE');
-        return true;
-      } catch (_) {
-        return false;
-      }
-    });
   }
 }
