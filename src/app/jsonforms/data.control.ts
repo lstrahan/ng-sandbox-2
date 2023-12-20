@@ -4,6 +4,11 @@ import { ControlProps } from '@jsonforms/core';
 
 @Component({
   selector: 'app-data-component',
+  standalone: true,
+  imports: [
+    CommonModule, JsonFormsModule,
+    JsonFormsAngularMaterialModule,
+  ],
   template: '<pre>{{dataAsString}}</pre>'
 })
 export class DataDisplayComponent extends JsonFormsControl {

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import { and, createAjv, isControl, optionIs, rankWith, schemaTypeIs, scopeEndsWith, setSchema, Tester } from '@jsonforms/core';
 import { DataDisplayComponent } from './data.control';
-import uischemaAsset from './afsim_event_uischema.json';
-import schemaAsset from './afsim_event_schema.json';
+import uischemaAsset from '/assets/afsim_event_uischema.json';
+import schemaAsset from '/assets/afsim_event_schema.json';
 import dataAsset from './data';
 import $RefParser from "@apidevtools/json-schema-ref-parser";
 import { CommonModule } from '@angular/common';
 import { JsonFormsModule } from '@jsonforms/angular';
-import { JsonFormsAngularMaterialModule } from '@jsonforms/angular-material';
+import {  } from '@jsonforms/core';
 
 const departmentTester: Tester = and(
   schemaTypeIs('string'),
@@ -19,8 +19,7 @@ const departmentTester: Tester = and(
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, JsonFormsModule,
-    JsonFormsAngularMaterialModule,
+    CommonModule, JsonFormsModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
